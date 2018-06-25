@@ -816,7 +816,8 @@ $statusrequestAPI = 'http://demo.pesapal.com/api/querypaymentstatus';//change to
                    //https://www.pesapal.com/api/querypaymentstatus' when you are ready to go live!
 
 // Parameters sent to you by PesaPal IPN
-$pesapalNotification=$_GET['pesapal_notification_type'];
+$pesapalNotification= 'CHANGE';
+//$_GET['pesapal_notification_type'];
 $pesapalTrackingId=$_GET['pesapal_transaction_tracking_id'];
 $pesapal_merchant_reference=$_GET['pesapal_merchant_reference'];
 
@@ -860,16 +861,16 @@ if($pesapalNotification=="CHANGE" && $pesapalTrackingId!='')
    
    //UPDATE YOUR DB TABLE WITH NEW STATUS FOR TRANSACTION WITH pesapal_transaction_tracking_id $pesapalTrackingId
 
-   if(DB_UPDATE_IS_SUCCESSFUL)
-   {
+   //if(DB_UPDATE_IS_SUCCESSFUL)
+   //{
       $resp="pesapal_notification_type=$pesapalNotification&pesapal_transaction_tracking_id=$pesapalTrackingId&pesapal_merchant_reference=$pesapal_merchant_reference";
       ob_start();
       echo $resp;
       ob_flush();
       exit;
-   }
+   //}
 
-      
+}    
 
 
 ?>

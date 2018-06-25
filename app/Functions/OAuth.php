@@ -832,8 +832,9 @@ if(!class_exists("OAuthUtil") ) {
         $signature_method = new OAuthSignatureMethod_HMAC_SHA1();
         $iframelink = 'http://demo.pesapal.com/api/PostPesapalDirectOrderV4';//change to      
                         //https://www.pesapal.com/API/PostPesapalDirectOrderV4 when you are ready to go live!
-       
+        
 	    use  App\payment;
+		
         //get form details
         $amount = (int)$request->input('amount');
         $amount = number_format($amount, 2);//format amount to 2 decimal places
